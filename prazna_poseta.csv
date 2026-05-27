@@ -1,0 +1,10 @@
+Period start,2020-01-01T00:00
+Period end,2020-01-02T23:59:59
+Broj poseta,0
+Prosecno trajanje (min),
+
+Najaktivniji clanovi
+clanId,imePrezime,brojPoseta,ukupnoTrajanjeMin
+
+Posete po danu
+dan,brojPoseta

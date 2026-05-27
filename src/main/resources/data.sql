@@ -1,0 +1,2 @@
+INSERT INTO ruta (naziv, tezina, visina, lokacija, boja, kategorija, datum_postavljanja, postavljac, aktivna)
+VALUES ('Test ruta', '6a', 12, 'Sektor A', 'crvena', 'BULDER', '2026-05-01', 'Test postavljač', true);
