@@ -44,6 +44,7 @@ public class Clan {
 
     private String krvnaGrupa;
 
+
     @Column(nullable = false)
     private Boolean aktivan;
 
@@ -52,6 +53,14 @@ public class Clan {
 
     @OneToMany(mappedBy = "clan", cascade = CascadeType.ALL)
     private List<Poseta> posete;
+
+    @Column(unique = true)
+    private String username;
+
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private com.penjackasala.climbing_sala.enums.RoleKorisnika role;
 
     @ManyToOne
     @JoinColumn(name = "trener_id")

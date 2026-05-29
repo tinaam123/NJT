@@ -162,4 +162,11 @@ public class ClanService {
 
         return ClanResponse.fromEntity(sacuvanClan);
     }
+    @Transactional(readOnly = true)
+    public List<ClanResponse> sviClanovi() {
+        return clanRepository.findAll()
+                .stream()
+                .map(ClanResponse::fromEntity)
+                .toList();
+    }
 }

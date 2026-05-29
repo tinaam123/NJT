@@ -53,6 +53,14 @@ public class PosetaService {
             throw new IllegalArgumentException("Član nema aktivnu članarinu. Ulazak nije dozvoljen.");
         }
 
+        boolean imaOtvorenaPoseta = posetaRepository
+                .findFirstByClanIdAndVremeIzlaskaIsNullOrderByVremeUlaskaDesc(clanId)
+                .isPresent();
+
+        if (imaOtvorenaPoseta) {
+            throw new IllegalArgumentException("Član već ima evidentiran ulazak bez izlaska. Najpre evidentirajte izlazak.");
+        }
+
         Poseta poseta = new Poseta();
         poseta.setClan(clan);
         poseta.setVremeUlaska(LocalDateTime.now());

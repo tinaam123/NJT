@@ -1,7 +1,6 @@
 package com.penjackasala.climbing_sala.dto;
 
 import com.penjackasala.climbing_sala.entity.Clan;
-
 import java.time.LocalDate;
 
 public record ClanResponse(
@@ -18,15 +17,14 @@ public record ClanResponse(
         String krvnaGrupa,
         Boolean aktivan,
         Long trenerId,
-        String trenerImePrezime
+        String trenerImePrezime,
+        String username
 ) {
-
     public static ClanResponse fromEntity(Clan clan) {
         Long trenerId = clan.getTrener() != null ? clan.getTrener().getId() : null;
         String trenerImePrezime = clan.getTrener() != null
                 ? clan.getTrener().getIme() + " " + clan.getTrener().getPrezime()
                 : null;
-
         return new ClanResponse(
                 clan.getId(),
                 clan.getIme(),
@@ -41,7 +39,8 @@ public record ClanResponse(
                 clan.getKrvnaGrupa(),
                 clan.getAktivan(),
                 trenerId,
-                trenerImePrezime
+                trenerImePrezime,
+                clan.getUsername()
         );
     }
 }

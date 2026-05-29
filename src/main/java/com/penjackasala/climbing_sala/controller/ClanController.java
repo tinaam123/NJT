@@ -30,6 +30,10 @@ public class ClanController {
     public ClanResponse registrujClana(@Valid @RequestBody RegistracijaClanaRequest request) {
         return clanService.registrujClana(request);
     }
+    @GetMapping
+    public List<ClanResponse> sviClanovi() {
+        return clanService.sviClanovi();
+    }
 
     @GetMapping("/pretraga")
     public List<ClanResponse> pretraziClanove(@RequestParam String kriterijum) {

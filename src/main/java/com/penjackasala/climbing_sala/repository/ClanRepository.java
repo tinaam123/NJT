@@ -10,6 +10,9 @@ public interface ClanRepository extends JpaRepository<Clan, Long> {
     boolean existsByEmail(String email);
 
     Optional<Clan> findByEmail(String email);
+    List<Clan> findAllByOrderByIdAsc();
+    Optional<Clan> findByUsername(String username);
+    boolean existsByUsername(String username);
 
     List<Clan> findByImeContainingIgnoreCaseOrPrezimeContainingIgnoreCase(String ime, String prezime);
 }
